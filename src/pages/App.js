@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './../components/navbar/index';
+import SelectorInput from './../components/selectorinput/index';
+import Button from './../components/button/index';
 
 class App extends Component {
   render() {
@@ -16,6 +18,11 @@ class App extends Component {
                     A melhor ferramenta para clientes encontrarem o salão perfeito!<br />
                     Encontre o salão perfeito com o horário ideal para você.
                     </p>
+                </div>
+                <div>
+                  <SelectorInput icon="cut" value="Corte Feminino"/>
+                  <SelectorInput icon="calendar" value="Dom, 02/01 às 15:00"/>
+                  <Button text="encontre" />
                 </div>
               </div>
             </div>

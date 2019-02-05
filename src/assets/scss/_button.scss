@@ -1,0 +1,25 @@
+.button{
+    font-family: Raleway;
+    background: none;
+    border: 2px solid #b69e59;
+    border-radius: 0;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    padding: 12px 12px;
+    text-transform: uppercase;
+    outline: none;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    -o-transition: 200ms;
+    transition: 200ms;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    user-select: none;
+}
