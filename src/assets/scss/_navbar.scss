@@ -12,6 +12,10 @@
 
     .icon {
         display: none;
+        font-size: 25px;
+        &:hover{
+            color:#ffffff;
+        }
     }
 
     a {
