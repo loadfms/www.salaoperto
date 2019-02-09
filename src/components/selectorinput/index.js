@@ -12,7 +12,7 @@ export default class selectorinput extends Component {
     
     render() {
         return (
-            <div class="selector-input">
+            <div className="selector-input">
                 <i className={this.state.selectorClass}></i>
                 <p>{this.state.value}</p>
             </div>

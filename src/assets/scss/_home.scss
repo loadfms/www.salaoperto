@@ -1,31 +1,53 @@
 .main{
     height: 100vh;
-    background: url('./../images/sallon.jpg') no-repeat center center;
     background-size: cover;
+    width: 100%;
+    min-height: 568px;
+    height: 101vh;
+    background-color: #515f66;
+    padding-top: calc(50vh - 155px);
+    position: relative;
+    background-image: url('./../images/sallon.jpg');
+    background-position-x: center;
+    background-size: cover;
+    margin-top: -50px;
 
-    .hero-section{
-        padding: 150px 0 100px 0;
-
-        .hero-content{
-            padding: 20px 0 20px 0;
-            h1{
-                font-weight: 700;
-                text-transform: uppercase;
-                color: #FFFFFF;
-                font-size: 34px;
-                line-height: 1.2;
-                letter-spacing: -1px;
-                margin: 0 0 20px 0;
-            }
-
-            p{
-                font-family: Raleway;
-                font-size: 14px;
-                line-height: 1.5;
-                margin: 0 0 25px 0;
-                color: #FFFFFF;
-                font-weight: 500;
+    .home-search{
+        color:$white;
+        h1{
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 28.8px;
+            margin: 0 0 8px 0;
+        }
+        p{
+            font-size: 14px;
+            text-align: center;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+        }
+        .box{
+            background-color: $white;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            margin-top:24px;
+            padding: 16px 8px 8px;
+            h2{
+                color:$light-black;
+                font-size: 16px;
             }
         }
+    }
+}
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+    .main{
+        padding-top: 130px;
     }
 }

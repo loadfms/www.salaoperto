@@ -12,7 +12,7 @@ export default class button extends Component {
   render() {
     return (
       <div>
-        <a class="button">{this.state.text}</a>
+        <a className="button">{this.state.text}</a>
       </div>
     )
   }
