@@ -21,7 +21,7 @@
             line-height: 28.8px;
             margin: 0 0 8px 0;
         }
-        p{
+        .subtitle{
             font-size: 14px;
             text-align: center;
             font-weight: 500;
@@ -34,7 +34,6 @@
             position: relative;
             z-index: 2;
             margin-top:24px;
-            padding: 16px 8px 8px;
             h2{
                 color:$light-black;
                 font-size: 16px;
@@ -48,6 +47,6 @@ and (min-device-width : 375px)
 and (max-device-width : 812px)
 and (-webkit-device-pixel-ratio : 3) {
     .main{
-        padding-top: 130px;
+        padding-top: 100px;
     }
 }
