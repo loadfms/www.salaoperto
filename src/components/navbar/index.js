@@ -29,7 +29,7 @@ export default class navbar extends Component {
                             <button className="col-sm-12 icon hidden-md hidden-lg" onClick={this.togglemenu}>
                                 <i className="fa fa-bars"></i>
                             </button>
-                            <a href="#home" className="brand col-md-4 hidden-sm hidden-xs">SP</a>
+                            <a href="/" className="brand col-md-4 hidden-sm hidden-xs">SP</a>
                             <a href="#news" className="col-md-2 hidden-sm hidden-xs">Como funciona?</a>
                             <a href="#contact" className="col-md-2 hidden-sm hidden-xs">Cadastrar meu salão</a>
                             <a href="#about" className="col-md-2 hidden-sm hidden-xs">Cadastre-se</a>

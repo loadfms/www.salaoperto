@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import Navbar from './../components/navbar/index';
 import Home from './home/index'
+import Result from './searchresult/index'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
           <Navbar />
-          <Home />
-      </div>
+
+          <Route exact path="/" component={Home} />
+          <Route path="/resultado" component={Result} />
+        </div>
+      </Router>
     );
   }
 }

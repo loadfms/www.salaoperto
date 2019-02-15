@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 import SelectorInput from './../../components/selectorinput/index'
+import { withRouter } from 'react-router-dom'
 
 export default class home extends Component {
+    constructor(props) {
+        super(props)
+
+        this.search = this.search.bind(this)
+    }
+
+    search() {
+        this.props.history.push('/resultado')
+    }
+
     render() {
         return (
             <div className="main">
@@ -25,7 +36,7 @@ export default class home extends Component {
                                     <SelectorInput icon="cut" value="Corte Feminino" />
                                 </div>
                                 <div class="col-xs-12">
-                                    <button className="btn"> Encontrar </button>
+                                    <button className="btn" onClick={this.search}> Encontrar </button>
                                 </div>
                             </div>
                         </div>
