@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Navbar from './../../components/navbar/index'
 
 export default class searchresult extends Component {
     render() {
