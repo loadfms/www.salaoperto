@@ -1,0 +1,31 @@
+version: v1.0
+name: First pipeline example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: "Build"
+    task:
+      secrets:
+        - name: awssecrets
+      env_vars:
+        - name: APP_ENV
+          value: prod
+      jobs:
+      - name: Docker build
+        commands:
+          - checkout
+          - echo $APP_ENV
+          - ls -1
+          - echo "$AWS_ACCESS_KEY_ID"
+          - echo "$AWS_SECRET_ACCESS_KEY"
+          - npm i -g npm
+          - node -v
+          - npm -v
+          - npm install build
+          - npm run build
+          - aws s3 sync ./build s3://salaoperto.com.br --acl public-read --delete
+          - aws cloudfront create-invalidation --distribution-id E1CHJVQLYZQCPQ --paths "/*"
+          - echo "done"
