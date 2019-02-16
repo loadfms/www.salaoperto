@@ -1,0 +1,14 @@
+.selector-input{
+    color: $light-black;
+    margin-bottom: 16px;
+    i{
+        font-size: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 12px 14px 14px 14px;
+        border-right: 0;
+        width: 50px;
+    }
+}

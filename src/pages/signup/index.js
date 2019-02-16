@@ -1,21 +1,17 @@
 import React, { Component } from 'react'
 import SelectorInput from './../../components/selectorinput/index'
 
-export default class home extends Component {
+export default class signup extends Component {
     constructor(props) {
         super(props)
 
         this.state = { 
-            valueData: "10/02/2019 15:00",
-            service: "Corte feminino"
+            email: "email@teste.com",
+            phone: "(11) 98010-8876",
+            password: "******"
         }
         
-        this.search = this.search.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
-    }
-
-    search() {
-        this.props.history.push('/resultado')
     }
 
     handleInputChange(key, value) {
@@ -32,21 +28,26 @@ export default class home extends Component {
                     </div>
                     <div className="row">
                         <div className="col-xs-offset-1 col-xs-10 box ">
-                            <h2>Salões</h2>
+                            <h2>Faça seu cadastro</h2>
 
                             <div className="row">
                                 <div className="col-xs-12">
-                                    <label>Data</label>
-                                    <SelectorInput icon="calendar" id="valueData" value={this.state.valueData} handleChange={this.handleInputChange} />
+                                    <label>Email</label>
+                                    <SelectorInput icon="user" id="email" value={this.state.email} handleChange={this.handleInputChange} />
                                 </div>
 
                                 <div className="col-xs-12">
-                                    <label>Serviço</label>
-                                    <SelectorInput icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} />
+                                    <label>Telefone</label>
+                                    <SelectorInput icon="phone" id="phone" value={this.state.phone} handleChange={this.handleInputChange} />
                                 </div>
 
                                 <div className="col-xs-12">
-                                    <button className="btn" onClick={this.search}> Encontrar </button>
+                                    <label>Senha</label>
+                                    <SelectorInput icon="lock" id="password" value={this.state.password} handleChange={this.handleInputChange}  />
+                                </div>
+
+                                <div className="col-xs-12">
+                                    <button className="btn" onClick={this.search}> Cadastrar </button>
                                 </div>
                             </div>
                         </div>

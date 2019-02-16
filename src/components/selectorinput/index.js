@@ -6,15 +6,19 @@ export default class selectorinput extends Component {
     
       this.state = {
          selectorClass: "fa fa-" + this.props.icon,
-         value: this.props.value
+         placeholder: this.props.placeholder
       }
+    }
+
+    handleChange(e){
+        this.props.handleChange(this.props.id, e.target.value)
     }
     
     render() {
         return (
             <div className="selector-input">
                 <i className={this.state.selectorClass}></i>
-                <p>{this.state.value}</p>
+                <input type="text" placeholder={this.state.placeholder} value={this.props.value} onChange={this.handleChange.bind(this)} />
             </div>
         )
     }
