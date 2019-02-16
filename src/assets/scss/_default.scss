@@ -59,3 +59,18 @@ label{
     width: 100%;
     margin-bottom: 16px;
 }
+
+.box{
+    background-color: $white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+    margin-top:24px;
+    padding-top: 16px;
+    h2{
+        color:$light-black;
+        font-size: 16px;
+        margin-top: 0;
+    }
+}

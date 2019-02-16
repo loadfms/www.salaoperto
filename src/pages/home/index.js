@@ -5,11 +5,11 @@ export default class home extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { 
+        this.state = {
             valueData: "10/02/2019 15:00",
             service: "Corte feminino"
         }
-        
+
         this.search = this.search.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
     }
@@ -35,12 +35,12 @@ export default class home extends Component {
                             <h2>Salões</h2>
 
                             <div className="row">
-                                <div className="col-xs-12">
+                                <div className="col-xs-12 col-md-6">
                                     <label>Data</label>
                                     <SelectorInput type="text" icon="calendar" id="valueData" value={this.state.valueData} handleChange={this.handleInputChange} />
                                 </div>
 
-                                <div className="col-xs-12">
+                                <div className="col-xs-12 col-md-6">
                                     <label>Serviço</label>
                                     <SelectorInput type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} />
                                 </div>

@@ -5,17 +5,23 @@ export default class signup extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { 
+        this.state = {
             email: "email@teste.com",
             phone: "(11) 98010-8876",
-            password: "******"
+            password: ""
         }
-        
+
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleInputChange(key, value) {
         this.setState({ [key]: value })
+    }
+
+    handleSubmit(e){
+        e.preventDefault()
+        alert(this.state)
     }
 
     render() {
@@ -29,24 +35,26 @@ export default class signup extends Component {
                     <div className="row">
                         <div className="col-xs-offset-1 col-xs-10 box ">
                             <div className="row">
-                                <div className="col-xs-12">
-                                    <label>Email</label>
-                                    <SelectorInput type="email" icon="user" id="email" value={this.state.email} handleChange={this.handleInputChange} />
-                                </div>
+                                <form onSubmit={this.handleSubmit}>
+                                    <div className="col-xs-12">
+                                        <label>Email</label>
+                                        <SelectorInput isrequired={true} type="email" icon="user" id="email" value={this.state.email} handleChange={this.handleInputChange} />
+                                    </div>
 
-                                <div className="col-xs-12">
-                                    <label>Telefone</label>
-                                    <SelectorInput type="text" icon="phone" id="phone" value={this.state.phone} handleChange={this.handleInputChange} />
-                                </div>
+                                    <div className="col-xs-12">
+                                        <label>Telefone</label>
+                                        <SelectorInput isrequired={true} type="text" icon="phone" id="phone" value={this.state.phone} handleChange={this.handleInputChange} />
+                                    </div>
 
-                                <div className="col-xs-12">
-                                    <label>Senha</label>
-                                    <SelectorInput type="password" icon="lock" id="password" value={this.state.password} handleChange={this.handleInputChange}  />
-                                </div>
+                                    <div className="col-xs-12">
+                                        <label>Senha</label>
+                                        <SelectorInput isrequired={true} type="password" icon="lock" id="password" value={this.state.password} handleChange={this.handleInputChange} />
+                                    </div>
 
-                                <div className="col-xs-12">
-                                    <button className="btn" onClick={this.search}> Cadastrar </button>
-                                </div>
+                                    <div className="col-xs-12">
+                                        <input type="submit" className="btn" value="Cadastrar" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
