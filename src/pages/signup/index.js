@@ -34,6 +34,7 @@ export default class signup extends Component {
                     </div>
                     <div className="row">
                         <div className="col-xs-offset-1 col-xs-10 box ">
+                            <h2>Cadastre-se</h2>
                             <div className="row">
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="col-xs-12">
