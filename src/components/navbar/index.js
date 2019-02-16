@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 
 export default class navbar extends Component {
@@ -8,6 +9,16 @@ export default class navbar extends Component {
         this.state = {
             isOpen: 'mobile-menu'
         };
+
+        axios.get('https://api.loadfms.com/health')
+            .then(function (response) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
 
         this.togglemenu = this.togglemenu.bind(this)
     }
