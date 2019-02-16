@@ -37,12 +37,12 @@ export default class home extends Component {
                             <div className="row">
                                 <div className="col-xs-12">
                                     <label>Data</label>
-                                    <SelectorInput icon="calendar" id="valueData" value={this.state.valueData} handleChange={this.handleInputChange} />
+                                    <SelectorInput type="text" icon="calendar" id="valueData" value={this.state.valueData} handleChange={this.handleInputChange} />
                                 </div>
 
                                 <div className="col-xs-12">
                                     <label>Serviço</label>
-                                    <SelectorInput icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} />
+                                    <SelectorInput type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} />
                                 </div>
 
                                 <div className="col-xs-12">

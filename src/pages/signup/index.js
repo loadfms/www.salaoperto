@@ -23,27 +23,25 @@ export default class signup extends Component {
             <div className="main">
                 <div className="container home-search">
                     <div className="row">
-                        <h1 className="col-xs-12">Encontre o serviço que você procura na hora que precisa</h1>
+                        <h1 className="col-xs-12">Cadastre-se e comece a agendar os seus serviços</h1>
                         <p className="col-xs-12 subtitle">Dezenas de salões perto de você: só falta encaixar o seu horário livre na agenda de um deles</p>
                     </div>
                     <div className="row">
                         <div className="col-xs-offset-1 col-xs-10 box ">
-                            <h2>Faça seu cadastro</h2>
-
                             <div className="row">
                                 <div className="col-xs-12">
                                     <label>Email</label>
-                                    <SelectorInput icon="user" id="email" value={this.state.email} handleChange={this.handleInputChange} />
+                                    <SelectorInput type="email" icon="user" id="email" value={this.state.email} handleChange={this.handleInputChange} />
                                 </div>
 
                                 <div className="col-xs-12">
                                     <label>Telefone</label>
-                                    <SelectorInput icon="phone" id="phone" value={this.state.phone} handleChange={this.handleInputChange} />
+                                    <SelectorInput type="text" icon="phone" id="phone" value={this.state.phone} handleChange={this.handleInputChange} />
                                 </div>
 
                                 <div className="col-xs-12">
                                     <label>Senha</label>
-                                    <SelectorInput icon="lock" id="password" value={this.state.password} handleChange={this.handleInputChange}  />
+                                    <SelectorInput type="password" icon="lock" id="password" value={this.state.password} handleChange={this.handleInputChange}  />
                                 </div>
 
                                 <div className="col-xs-12">
