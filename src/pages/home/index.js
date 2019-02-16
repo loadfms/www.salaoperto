@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SelectorInput from './../../components/selectorinput/index'
-import { withRouter } from 'react-router-dom'
 
 export default class home extends Component {
     constructor(props) {
@@ -25,17 +24,17 @@ export default class home extends Component {
                         <div className="col-xs-offset-1 col-xs-10 box ">
                             <h2>Salões</h2>
 
-                            <div class="row">
-                                <div class="col-xs-12">
+                            <div className="row">
+                                <div className="col-xs-12">
                                     <label>Data</label>
                                     <SelectorInput icon="calendar" value="10/02/2019 15:00" />
                                 </div>
 
-                                <div class="col-xs-12">
+                                <div className="col-xs-12">
                                     <label>Serviço</label>
                                     <SelectorInput icon="cut" value="Corte Feminino" />
                                 </div>
-                                <div class="col-xs-12">
+                                <div className="col-xs-12">
                                     <button className="btn" onClick={this.search}> Encontrar </button>
                                 </div>
                             </div>
