@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import SelectorInput from './../../components/selectorinput/index'
+import axios from 'axios';
 
 export default class signup extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            email: "email@teste.com",
-            phone: "(11) 98010-8876",
+            email: "",
+            phone: "",
             password: ""
         }
 
@@ -21,7 +22,14 @@ export default class signup extends Component {
 
     handleSubmit(e){
         e.preventDefault()
-        alert(this.state)
+
+        axios.post('https://api.loadfms.com/users', this.state)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     render() {

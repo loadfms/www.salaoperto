@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 
 export default class navbar extends Component {
@@ -9,16 +9,6 @@ export default class navbar extends Component {
         this.state = {
             isOpen: 'mobile-menu'
         };
-
-        axios.get('https://api.loadfms.com/health')
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
 
         this.togglemenu = this.togglemenu.bind(this)
     }
@@ -40,27 +30,28 @@ export default class navbar extends Component {
                             <button className="col-sm-12 icon hidden-md hidden-lg" onClick={this.togglemenu}>
                                 <i className="fa fa-bars"></i>
                             </button>
-                            <a href="/" className="brand col-md-2 hidden-sm hidden-xs">SP</a>
-                            <a href="#news" className="col-md-offset-2 col-md-2 hidden-sm hidden-xs">Como funciona?</a>
-                            <a href="#about" className="col-md-2 hidden-sm hidden-xs">Cadastrar meu salão</a>
-                            <a href="/cadastro" className="col-md-2 hidden-sm hidden-xs">Cadastre-se</a>
-                            <a href="#about" className="col-md-2 hidden-sm hidden-xs">Login</a>
+                            <Link to="/" className="brand col-md-2 hidden-sm hidden-xs">Teste</Link>
+
+                            <Link to="/faq" className="col-md-offset-2 col-md-2 hidden-sm hidden-xs">Como Funciona?</Link>
+                            <Link to="/cadastro-salao" className="col-md-2 hidden-sm hidden-xs">Cadastrar meu salão</Link>
+                            <Link to="/cadastro" className="col-md-2 hidden-sm hidden-xs">Cadastre-se</Link>
+                            <Link to="/login" className="col-md-2 hidden-sm hidden-xs">Login</Link>
                         </div>
                     </div>
                 </nav>
                 <div className={this.state.isOpen}>
                     <ul>
                         <li>
-                            <a href="#news">Como funciona?</a>
+                            <Link to="/faq">Como Funciona?</Link>
                         </li>
                         <li>
-                            <a href="#news">Cadastrar meu salão</a>
+                            <Link to="/cadastro-salao" >Cadastrar meu salão</Link>
                         </li>
                         <li>
-                            <a href="/cadastro">Cadastre-se</a>
+                            <Link to="/cadastro">Cadastre-se</Link>
                         </li>
                         <li>
-                            <a href="#news">Login</a>
+                            <Link to="/login">Login</Link>
                         </li>
                     </ul>
                 </div>
