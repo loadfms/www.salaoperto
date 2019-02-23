@@ -1,0 +1,26 @@
+.card{
+    margin-top: 2px;
+    background-color: $white;
+    .info{
+        margin-bottom: 16px;
+        padding-top: 16px;
+        img{
+            max-width: 122px;
+            max-height: 92px;
+        }
+    }
+    h3{
+        margin-top: 0;
+        font-size: 16px;
+        color:$black;
+        small{
+            font-weight: normal;
+            font-size: 12px;
+        }
+    }
+
+    p{
+        margin:0;
+        font-size: 12px;
+    }
+}
