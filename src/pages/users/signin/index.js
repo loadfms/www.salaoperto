@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import SelectorInput from './../../components/selectorinput/index'
+import SelectorInput from './../../../components/selectorinput/index'
 import axios from 'axios';
+import * as config from './../../../config'
 
-export default class signup extends Component {
+export default class signin extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             email: "",
-            phone: "",
             password: ""
         }
 
@@ -23,7 +23,7 @@ export default class signup extends Component {
     handleSubmit(e){
         e.preventDefault()
 
-        axios.post('https://api.loadfms.com/users', this.state)
+        axios.post(config.API_URL + 'users/login', this.state)
             .then(function (response) {
                 console.log(response);
             })
@@ -37,8 +37,8 @@ export default class signup extends Component {
             <div className="main">
                 <div className="container home-search">
                     <div className="row">
-                        <h1 className="col-xs-12">Cadastre-se e comece a agendar os seus serviços</h1>
-                        <p className="col-xs-12 subtitle">Dezenas de salões perto de você: só falta encaixar o seu horário livre na agenda de um deles</p>
+                        <h1 className="col-xs-12">Faça o login e acesso seu conteúdo privado</h1>
+                        <p className="col-xs-12 subtitle">Agende, consulte, confime e entre em contato com mais de 1000 salões perto de você</p>
                     </div>
                     <div className="row">
                         <div className="col-xs-offset-1 col-xs-10 box ">
@@ -51,17 +51,12 @@ export default class signup extends Component {
                                     </div>
 
                                     <div className="col-xs-12">
-                                        <label>Telefone</label>
-                                        <SelectorInput isrequired={true} type="text" icon="phone" id="phone" value={this.state.phone} handleChange={this.handleInputChange} />
-                                    </div>
-
-                                    <div className="col-xs-12">
                                         <label>Senha</label>
                                         <SelectorInput isrequired={true} type="password" icon="lock" id="password" value={this.state.password} handleChange={this.handleInputChange} />
                                     </div>
 
                                     <div className="col-xs-12">
-                                        <input type="submit" className="btn" value="Cadastrar" />
+                                        <input type="submit" className="btn" value="Login" />
                                     </div>
                                 </form>
                             </div>

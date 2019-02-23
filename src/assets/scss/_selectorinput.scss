@@ -10,5 +10,13 @@
         padding: 12px 14px 14px 14px;
         border-right: 0;
         width: 50px;
+        background-color: white;
+        float: left;
+        height: 48px;
+    }
+
+    &.black{
+        
+        color: $light-black;
     }
 }

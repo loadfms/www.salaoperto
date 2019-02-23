@@ -74,5 +74,9 @@ and (max-device-width : 812px)
 and (-webkit-device-pixel-ratio : 3) {
     .top-nav{
         background-color: $white;
+        background-image: url('./../images/black-logo.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 35%;
     }
 }

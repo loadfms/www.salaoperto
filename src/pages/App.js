@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Navbar from './../components/navbar/index';
 import Home from './home/index';
 import Result from './searchresult/index';
-import Signup from './signup/index';
-import Signin from './signin/index';
+import Signup from './users/signup/index';
+import Signin from './users/signin/index';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
