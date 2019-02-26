@@ -12,6 +12,15 @@ export default class home extends Component {
 
         this.search = this.search.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                localStorage.setItem('latitude', position.coords.latitude);
+                localStorage.setItem('longitude', position.coords.longitude);
+            });
+        } else {
+            localStorage.setItem('latitude', '23.5942');
+            localStorage.setItem('longitude', '46.6836');
+        }
     }
 
     search() {
@@ -35,11 +44,6 @@ export default class home extends Component {
                             <h2>Salões</h2>
 
                             <div className="row">
-                                <div className="col-xs-12 col-md-6">
-                                    <label>Data</label>
-                                    <SelectorInput type="text" icon="calendar" id="valueData" value={this.state.valueData} handleChange={this.handleInputChange} />
-                                </div>
-
                                 <div className="col-xs-12 col-md-6">
                                     <label>Serviço</label>
                                     <SelectorInput type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} />

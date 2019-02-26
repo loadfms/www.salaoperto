@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import SelectorInput from './../../components/selectorinput/index'
 import Card from './../../components/card/index'
+import axios from 'axios'
+import * as config from './../../config'
+
 
 export default class searchresult extends Component {
     constructor(props) {
@@ -12,6 +15,19 @@ export default class searchresult extends Component {
         };
 
         this.tooglefilter = this.tooglefilter.bind(this)
+    }
+
+    getData(){
+        let latitude = localStorage.getItem('latitude');
+        let longitude = localStorage.getItem('longitude');
+
+        axios.post(config.API_URL + 'companies', latitude, longitude)
+            .then(function (response) {
+                console.log(response); 
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     tooglefilter() {
