@@ -80,14 +80,14 @@ export default class searchresult extends Component {
                         <div className={this.state.isOpen}>
                             <div className="col-xs-12 col-md-6">
                                 <label>Serviço</label>
-                                <SelectorInput type="text" icon="cut" id="service" value="Corte feminino" />
+                                <SelectorInput type="text" icon="cut" id="service" value="Corte masculino" />
                             </div>
 
                             <div className="col-xs-12">
                                 <button className="btn" onClick={this.search}> Encontrar </button>
                             </div>
                         </div>
-                        <small><strong>126</strong> salões encontrados em <strong>Vila Olimpia, SP</strong> que tem o serviço de <strong>corte feminino</strong>.</small>
+                        <small><strong>{this.state.payload.data.count}</strong> salões encontrados em <strong>Vila Olimpia, SP</strong> que tem o serviço de <strong>corte masculino</strong>.</small>
                     </div>
                 </div>
                 <div className="row">
