@@ -8,7 +8,8 @@ export default class card extends Component {
           <img src={this.props.logo} alt={this.props.name} />
         </div>
         <div className="col-xs-8">
-          <h3>{this.props.name}<small> {this.props.subname}</small></h3>
+          <small> {this.props.subname}</small>
+          <h3>{this.props.name}</h3>
           <p>{this.props.address}</p>
           <p>{this.props.neighborhood}, {this.props.city}, {this.props.state}</p>
         </div>
@@ -18,7 +19,8 @@ export default class card extends Component {
       upperlayout = (
         <React.Fragment>
           <div className="col-xs-8">
-            <h3>{this.props.name}<small> {this.props.subname}</small></h3>
+            <small> {this.props.subname}</small>
+            <h3>{this.props.name}</h3>
             <p>{this.props.address}</p>
             <p>{this.props.neighborhood}, {this.props.city}, {this.props.state}</p>
           </div>

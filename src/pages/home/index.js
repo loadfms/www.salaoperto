@@ -44,12 +44,12 @@ export default class home extends Component {
                             <h2>Salões</h2>
 
                             <div className="row">
-                                <div className="col-xs-12 col-md-6">
+                                <div className="col-xs-12 col-md-12">
                                     <label>Serviço</label>
                                     <SelectorInput type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} />
                                 </div>
 
-                                <div className="col-xs-12">
+                                <div className="col-xs-12 col-md-3">
                                     <button className="btn" onClick={this.search}> Encontrar </button>
                                 </div>
                             </div>

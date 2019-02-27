@@ -11,19 +11,21 @@ export default class searchresult extends Component {
 
         this.state = {
             isOpen: 'row filter-content',
-            faIcon: 'fa fa-plus-square collapse-filter'
+            faIcon: 'fa fa-plus-square collapse-filter',
+            data: []
         };
 
         this.tooglefilter = this.tooglefilter.bind(this)
     }
 
-    getData(){
+    componentWillMount = () => {
         let latitude = localStorage.getItem('latitude');
         let longitude = localStorage.getItem('longitude');
+        let _this = this;
 
-        axios.post(config.API_URL + 'companies', latitude, longitude)
+        axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=Corte%20Masculino&page=1')
             .then(function (response) {
-                console.log(response); 
+                _this.setState({ data: response.data.companies })
             })
             .catch(function (error) {
                 console.log(error);
@@ -55,7 +57,7 @@ export default class searchresult extends Component {
                         <div className={this.state.isOpen}>
                             <div className="col-xs-12 col-md-6">
                                 <label>Data</label>
-                                <SelectorInput type="text" icon="calendar" id="valueData" value="10/02/2019 15:00"/>
+                                <SelectorInput type="text" icon="calendar" id="valueData" value="10/02/2019 15:00" />
                             </div>
 
                             <div className="col-xs-12 col-md-6">
@@ -71,10 +73,9 @@ export default class searchresult extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <Card name="Romeo" subname="the grooming room" address="Rua Júlio Diniz, 31" neighborhood="Vila Olímpia" city="São Paulo" state="SP" logo="https://www.trinks.com//Content/upload/img/est_logo/0x92/logo_000005723.jpg?v=68082" />
-                    <Card invert={true}  name="Dom Caveira" subname="barbearia" address="Avenida Doutor Cardoso de Melo, 984" neighborhood="Vila Olímpia" city="São Paulo" state="SP" logo="https://static.avecbrasil.com.br/saloes/barbeariadomcave/logo.jpg"/>
-                    <Card name="Zenos" subname="sallon express" address="Rua Ramos Batista, 372" neighborhood="Vila Olímpia" city="São Paulo" state="SP" logo="https://static.salaovip.com.br/saloes/zenosvlolimpia/logo.jpg"/>
-                    <Card invert={true}  name="Corleone" subname="barbearia" address="Rua Nova Cidade, 26" neighborhood="Vila Olímpia" city="São Paulo" state="SP" logo="https://static.salaovip.com.br/saloes/corleone-vila-olimpia/logo.jpg"/>
+                    {this.state.data.map((company, i) => {
+                        return (<Card key={company.company_id} name={company.nome} subname={company.Service[0].nome} address={company.endereco} neighborhood={company.bairro} city={company.cidade} state="SP" logo={company.urlFoto} />)
+                    })}
                 </div>
             </div>
         )
