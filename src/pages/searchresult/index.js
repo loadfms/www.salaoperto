@@ -12,7 +12,7 @@ export default class searchresult extends Component {
         this.state = {
             isOpen: 'row filter-content',
             faIcon: 'fa fa-plus-square collapse-filter',
-            data: []
+            payload: {data: {companies: []}}
         };
 
         this.tooglefilter = this.tooglefilter.bind(this)
@@ -25,7 +25,7 @@ export default class searchresult extends Component {
 
         axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=Corte%20Masculino&page=1')
             .then(function (response) {
-                _this.setState({ data: response.data.companies })
+                _this.setState({ payload: response })
             })
             .catch(function (error) {
                 console.log(error);
@@ -56,11 +56,6 @@ export default class searchresult extends Component {
 
                         <div className={this.state.isOpen}>
                             <div className="col-xs-12 col-md-6">
-                                <label>Data</label>
-                                <SelectorInput type="text" icon="calendar" id="valueData" value="10/02/2019 15:00" />
-                            </div>
-
-                            <div className="col-xs-12 col-md-6">
                                 <label>Serviço</label>
                                 <SelectorInput type="text" icon="cut" id="service" value="Corte feminino" />
                             </div>
@@ -73,8 +68,9 @@ export default class searchresult extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    {this.state.data.map((company, i) => {
-                        return (<Card key={company.company_id} name={company.nome} subname={company.Service[0].nome} address={company.endereco} neighborhood={company.bairro} city={company.cidade} state="SP" logo={company.urlFoto} />)
+                    {this.state.payload.data.companies.map((company, i) => {
+                        let invert = i%2 != 0
+                        return (<Card invert={invert} key={company.company_id} name={company.nome} subname={company.Service[0].nome} address={company.endereco} neighborhood={company.bairro} city={company.cidade} state="SP" logo={company.urlFoto} />)
                     })}
                 </div>
             </div>
