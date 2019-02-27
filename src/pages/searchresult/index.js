@@ -12,20 +12,43 @@ export default class searchresult extends Component {
         this.state = {
             isOpen: 'row filter-content',
             faIcon: 'fa fa-plus-square collapse-filter',
-            payload: {data: {companies: []}}
+            payload: { data: { companies: [] } },
+            page: 1
         };
 
         this.tooglefilter = this.tooglefilter.bind(this)
     }
 
     componentWillMount = () => {
+        this.getData()
+    }
+
+    componentDidMount = () => {
+        window.onscroll = () => {
+            if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+                this.setState({ page: this.state.page+1 }, () => {
+                    this.getData()
+                })
+            }
+        };
+    }
+
+    getData() {
         let latitude = localStorage.getItem('latitude');
         let longitude = localStorage.getItem('longitude');
         let _this = this;
 
-        axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=Corte%20Masculino&page=1')
+        axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=Corte%20Masculino&page=' + this.state.page)
             .then(function (response) {
+
+                let currentCompanies = _this.state.payload.data.companies
+                let newCompanies = response.data.companies
+                let result = currentCompanies.concat(newCompanies);
+
+                response.data.companies = result
+
                 _this.setState({ payload: response })
+                
             })
             .catch(function (error) {
                 console.log(error);
@@ -69,7 +92,7 @@ export default class searchresult extends Component {
                 </div>
                 <div className="row">
                     {this.state.payload.data.companies.map((company, i) => {
-                        let invert = i%2 != 0
+                        let invert = i % 2 !== 0
                         return (<Card invert={invert} key={company.company_id} name={company.nome} subname={company.Service[0].nome} address={company.endereco} neighborhood={company.bairro} city={company.cidade} state="SP" logo={company.urlFoto} />)
                     })}
                 </div>
