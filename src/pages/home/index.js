@@ -6,8 +6,7 @@ export default class home extends Component {
         super(props)
 
         this.state = {
-            valueData: "10/02/2019 15:00",
-            service: "Corte feminino"
+            service: ""
         }
 
         this.search = this.search.bind(this)
@@ -46,7 +45,7 @@ export default class home extends Component {
                             <div className="row">
                                 <div className="col-xs-12 col-md-12">
                                     <label>Serviço</label>
-                                    <SelectorInput type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} />
+                                    <SelectorInput placeholder="ex. Corte feminino" type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} autocomplete={true} autocompleteroute="services?nome=" />
                                 </div>
 
                                 <div className="col-xs-12 col-md-3">
