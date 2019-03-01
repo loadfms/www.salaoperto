@@ -28,14 +28,14 @@ export default class searchresult extends Component {
         window.onscroll = () => {
             if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
                 this.setState({ page: this.state.page+1 }, () => {
-                    this.getData()
+                    this.getData(false)
                 })
             }
         };
     }
 
     componentDidMount(){
-        this.getData()
+        this.getData(false)
         this.setState({service: localStorage.getItem('service')})
     }
 
