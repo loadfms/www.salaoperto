@@ -23,6 +23,7 @@ export default class home extends Component {
     }
 
     search() {
+        localStorage.setItem('service', this.state.service);
         this.props.history.push('/resultado')
     }
 

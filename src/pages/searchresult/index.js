@@ -36,9 +36,10 @@ export default class searchresult extends Component {
     getData() {
         let latitude = localStorage.getItem('latitude');
         let longitude = localStorage.getItem('longitude');
+        let service = localStorage.getItem('service');
         let _this = this;
 
-        axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=Corte%20Masculino&page=' + this.state.page)
+        axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=' + service + '&page=' + this.state.page)
             .then(function (response) {
 
                 let currentCompanies = _this.state.payload.data.companies
