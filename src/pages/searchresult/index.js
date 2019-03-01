@@ -13,11 +13,18 @@ export default class searchresult extends Component {
             isOpen: 'row filter-content',
             faIcon: 'fa fa-plus-square collapse-filter',
             payload: { data: { companies: [] } },
-            page: 1
+            page: 1,
+            service: ''
         };
 
         this.tooglefilter = this.tooglefilter.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.getData = this.getData.bind(this)
 
+        this.registerLayzyLoad()
+    }
+
+    registerLayzyLoad(){
         window.onscroll = () => {
             if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
                 this.setState({ page: this.state.page+1 }, () => {
@@ -27,22 +34,29 @@ export default class searchresult extends Component {
         };
     }
 
-    componentDidMount = () => {
+    componentDidMount(){
         this.getData()
+        this.setState({service: localStorage.getItem('service')})
     }
 
-    getData() {
+    getData(clear) {
         let latitude = localStorage.getItem('latitude');
         let longitude = localStorage.getItem('longitude');
-        let service = localStorage.getItem('service');
         let _this = this;
 
-        axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=' + service + '&page=' + this.state.page)
+        axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=' + this.state.service + '&page=' + this.state.page)
             .then(function (response) {
 
+                
                 let currentCompanies = _this.state.payload.data.companies
                 let newCompanies = response.data.companies
-                let result = currentCompanies.concat(newCompanies);
+                let result = []
+                
+                if (!clear){
+                    result = currentCompanies.concat(newCompanies);
+                } else {
+                    result = newCompanies
+                }
 
                 response.data.companies = result
 
@@ -68,6 +82,10 @@ export default class searchresult extends Component {
         }
     }
 
+    handleInputChange(key, value) {
+        this.setState({ [key]: value })
+    }
+
     render() {
         return (
             <div className="container result">
@@ -79,11 +97,11 @@ export default class searchresult extends Component {
                         <div className={this.state.isOpen}>
                             <div className="col-xs-12 col-md-12">
                                 <label>Serviço</label>
-                                <SelectorInput type="text" icon="cut" id="service" value="Corte masculino" />
+                                <SelectorInput placeholder="ex. Corte feminino" type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} autocomplete={true} autocompleteroute="services?nome=" />
                             </div>
 
                             <div className="col-xs-12">
-                                <button className="btn" onClick={this.search}> Encontrar </button>
+                                <button className="btn" onClick={this.getData}> Encontrar </button>
                             </div>
                         </div>
                         <small><strong>{this.state.payload.data.count}</strong> salões encontrados em <strong>Vila Olimpia, SP</strong> que tem o serviço de <strong>corte masculino</strong>.</small>
