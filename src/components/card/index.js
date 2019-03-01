@@ -24,7 +24,7 @@ export default class card extends Component {
             <p>{this.props.address}</p>
             <p>{this.props.neighborhood}, {this.props.city}, {this.props.state}</p>
           </div>
-          <div className="col-xs-4">
+          <div className="col-xs-4 right">
             <img src={this.props.logo} alt={this.props.name} />
           </div>
         </React.Fragment>

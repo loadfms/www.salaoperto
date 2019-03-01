@@ -17,13 +17,7 @@ export default class searchresult extends Component {
         };
 
         this.tooglefilter = this.tooglefilter.bind(this)
-    }
 
-    componentWillMount = () => {
-        this.getData()
-    }
-
-    componentDidMount = () => {
         window.onscroll = () => {
             if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
                 this.setState({ page: this.state.page+1 }, () => {
@@ -31,6 +25,10 @@ export default class searchresult extends Component {
                 })
             }
         };
+    }
+
+    componentDidMount = () => {
+        this.getData()
     }
 
     getData() {
@@ -79,7 +77,7 @@ export default class searchresult extends Component {
                         <h2>Filtros</h2>
 
                         <div className={this.state.isOpen}>
-                            <div className="col-xs-12 col-md-6">
+                            <div className="col-xs-12 col-md-12">
                                 <label>Serviço</label>
                                 <SelectorInput type="text" icon="cut" id="service" value="Corte masculino" />
                             </div>
