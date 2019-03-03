@@ -20,8 +20,6 @@ export default class searchresult extends Component {
         this.tooglefilter = this.tooglefilter.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
         this.getData = this.getData.bind(this)
-
-        this.registerLayzyLoad()
     }
 
     registerLayzyLoad(){
@@ -35,6 +33,8 @@ export default class searchresult extends Component {
     }
 
     componentDidMount(){
+        this.registerLayzyLoad()
+
         this.getData(false)
         this.setState({service: localStorage.getItem('service')})
     }
