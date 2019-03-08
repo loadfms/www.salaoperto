@@ -7,10 +7,17 @@ export default class navbar extends Component {
         super(props);
 
         this.state = {
-            isOpen: 'mobile-menu'
+            isOpen: 'mobile-menu',
+            navbarClass: 'top-nav'
         };
 
         this.togglemenu = this.togglemenu.bind(this)
+    }
+
+    componentDidMount = () => {
+        if (this.props.color){
+            this.setState({navbarClass: 'top-nav ' + this.props.color})
+        }
     }
 
     togglemenu() {
@@ -24,18 +31,18 @@ export default class navbar extends Component {
     render() {
         return (
             <div>
-                <nav className="top-nav">
+                <nav className={this.state.navbarClass}>
                     <div className="container">
                         <div className="row">
-                            <button className="col-sm-12 icon hidden-md hidden-lg" onClick={this.togglemenu}>
+                            <button className="col-sm-12 icon hidden-sm hidden-md hidden-lg" onClick={this.togglemenu}>
                                 <i className="fa fa-bars"></i>
                             </button>
-                            <Link to="/" className="brand col-md-2 hidden-sm hidden-xs">Teste</Link>
+                            <Link to="/" className="brand col-sm-2 hidden-xs">Home</Link>
 
-                            <Link to="/faq" className="col-md-offset-2 col-md-2 hidden-sm hidden-xs">Como Funciona?</Link>
-                            <Link to="/cadastro-salao" className="col-md-2 hidden-sm hidden-xs">Cadastrar meu salão</Link>
-                            <Link to="/cadastro" className="col-md-2 hidden-sm hidden-xs">Cadastre-se</Link>
-                            <Link to="/login" className="col-md-2 hidden-sm hidden-xs">Login</Link>
+                            <Link to="/faq" className="col-sm-offset-2 col-sm-2 hidden-xs">Como Funciona?</Link>
+                            <Link to="/cadastro-salao" className="col-sm-2 hidden-xs">Cadastrar meu salão</Link>
+                            <Link to="/cadastro" className="col-sm-2 hidden-xs">Cadastre-se</Link>
+                            <Link to="/login" className="col-sm-2 hidden-xs">Login</Link>
                         </div>
                     </div>
                 </nav>

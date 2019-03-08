@@ -52,7 +52,7 @@ export default class selectorinput extends Component {
         return (
             <div className="selector-input">
                 <i className={this.state.selectorClass}></i>
-                <input required={this.props.isrequired} type={this.props.type} placeholder={this.state.placeholder} value={this.props.value} onChange={this.handleChange.bind(this)} />
+                <input required={this.props.isrequired} type={this.props.type} placeholder={this.state.placeholder} value={this.props.value} onChange={this.handleChange.bind(this)} autoComplete="false" />
 
                 <div className={this.state.showAutoComplete ? "selector-auto-complete show" : "selector-auto-complete"}>
                     <ul>
