@@ -37,7 +37,7 @@ export default class navbar extends Component {
                             <button className="col-sm-12 icon hidden-sm hidden-md hidden-lg" onClick={this.togglemenu}>
                                 <i className="fa fa-bars"></i>
                             </button>
-                            <Link to="/" className="brand col-sm-2 hidden-xs">Home</Link>
+                            <Link to="/" className="brand col-sm-2 hidden-xs">salaoperto</Link>
 
                             <Link to="/faq" className="col-sm-offset-2 col-sm-2 hidden-xs">Como Funciona?</Link>
                             <Link to="/cadastro-salao" className="col-sm-2 hidden-xs">Cadastrar meu salão</Link>
