@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import SelectorInput from './../../components/selectorinput/index'
+import Navbar from './../../components/navbar/index';
 import axios from 'axios'
 import * as config from './../../config'
+
 
 export default class home extends Component {
     constructor(props) {
@@ -64,30 +66,33 @@ export default class home extends Component {
 
     render() {
         return (
-            <div className="main">
-                <div className="container home-search">
-                    <div className="row">
-                        <h1 className="col-xs-12">Encontre o serviço que você procura na hora que precisa</h1>
-                        <p className="col-xs-12 subtitle">Dezenas de salões perto de você: só falta encaixar o seu horário livre na agenda de um deles</p>
-                    </div>
-                    <div className="row">
-                        <div className="col-xs-offset-1 col-xs-10 box ">
-                            <h2>Salões próximos a {this.state.neighborhood}</h2>
+            <div>
+                <Navbar color="white"/>
+                <div className="main">
+                    <div className="container home-search">
+                        <div className="row">
+                            <h1 className="col-xs-12">Encontre o serviço que você procura na hora que precisa</h1>
+                            <p className="col-xs-12 subtitle">Dezenas de salões perto de você: só falta encaixar o seu horário livre na agenda de um deles</p>
+                        </div>
+                        <div className="row">
+                            <div className="col-xs-offset-1 col-xs-10 box ">
+                                <h2>Salões próximos a {this.state.neighborhood}</h2>
 
-                            <div className="row">
-                                <div className="col-xs-12 col-md-12">
-                                    <label>Serviço</label>
-                                    <SelectorInput placeholder="ex. Corte feminino" type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} autocomplete={true} autocompleteroute="services?nome=" />
-                                </div>
+                                <div className="row">
+                                    <div className="col-xs-12 col-md-12">
+                                        <label>Serviço</label>
+                                        <SelectorInput placeholder="ex. Corte feminino" type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} autocomplete={true} autocompleteroute="services?nome=" />
+                                    </div>
 
-                                <div className="col-xs-12 col-md-3">
-                                    <button className="btn" onClick={this.search}> Encontrar </button>
+                                    <div className="col-xs-12 col-md-3">
+                                        <button className="btn" onClick={this.search}> Encontrar </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div >
+                </div >
+            </div>
         )
     }
 }
