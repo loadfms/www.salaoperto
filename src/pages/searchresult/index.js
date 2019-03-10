@@ -14,7 +14,8 @@ export default class searchresult extends Component {
             faIcon: 'fa fa-plus-square collapse-filter',
             payload: { data: { companies: [] } },
             page: 1,
-            service: ''
+            service: '',
+            neighborhood: localStorage.getItem('neighborhood')
         };
 
         this.tooglefilter = this.tooglefilter.bind(this)
@@ -104,7 +105,7 @@ export default class searchresult extends Component {
                                 <button className="btn" onClick={this.getData}> Encontrar </button>
                             </div>
                         </div>
-                        <small><strong>{this.state.payload.data.count}</strong> salões encontrados em <strong>Vila Olimpia, SP</strong> que tem o serviço de <strong>corte masculino</strong>.</small>
+                        <small><strong>{this.state.payload.data.count}</strong> salões encontrados em <strong>{this.state.neighborhood}, SP</strong> que tem o serviço de <strong>corte masculino</strong>.</small>
                     </div>
                 </div>
                 <div className="row">

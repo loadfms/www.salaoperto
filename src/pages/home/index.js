@@ -1,29 +1,60 @@
 import React, { Component } from 'react'
 import SelectorInput from './../../components/selectorinput/index'
+import axios from 'axios'
+import * as config from './../../config'
 
 export default class home extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            service: ""
+            service: "",
+            latitude: "-23.5942",
+            longitude: "-46.6836",
+            neighborhood: "Vila Olímpia"
         }
 
         this.search = this.search.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+
+    }
+
+    componentDidMount() {
+        let _this = this
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                localStorage.setItem('latitude', position.coords.latitude);
-                localStorage.setItem('longitude', position.coords.longitude);
+                _this.setState({ latitude: position.coords.latitude, longitude: position.coords.longitude }, () => {
+                    _this.getLocation()
+                })
             });
         } else {
-            localStorage.setItem('latitude', '23.5942');
-            localStorage.setItem('longitude', '46.6836');
+            this.getLocation()
         }
     }
 
+
+    getLocation() {
+        let url = config.GOOGLE_GEOLOCATION_URL.replace("{lat}", this.state.latitude).replace("{lon}", this.state.longitude)
+        let _this = this
+
+        axios.get(url)
+            .then(function (response) {
+                response.data.results[0].address_components.map((item, i) => {
+                    if (item.types.includes("sublocality")){
+                       _this.setState({neighborhood: item.long_name})
+                    }
+                })
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+    }
+
     search() {
+        localStorage.setItem('latitude', this.state.latitude);
+        localStorage.setItem('longitude', this.state.longitude);
         localStorage.setItem('service', this.state.service);
+        localStorage.setItem('neighborhood', this.state.neighborhood);
         this.props.history.push('/resultado')
     }
 
@@ -41,7 +72,7 @@ export default class home extends Component {
                     </div>
                     <div className="row">
                         <div className="col-xs-offset-1 col-xs-10 box ">
-                            <h2>Salões</h2>
+                            <h2>Salões próximos a {this.state.neighborhood}</h2>
 
                             <div className="row">
                                 <div className="col-xs-12 col-md-12">
