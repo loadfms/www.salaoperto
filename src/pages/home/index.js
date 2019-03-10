@@ -41,10 +41,9 @@ export default class home extends Component {
 
         axios.get(url)
             .then(function (response) {
-                response.data.results[0].address_components.map((item, i) => {
+                response.data.results[0].address_components.forEach(element => {
                     if (item.types.includes("sublocality")) {
                         _this.setState({ neighborhood: item.long_name })
-                        return 0
                     }
                 })
             })
