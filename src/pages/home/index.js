@@ -42,8 +42,9 @@ export default class home extends Component {
         axios.get(url)
             .then(function (response) {
                 response.data.results[0].address_components.map((item, i) => {
-                    if (item.types.includes("sublocality")){
-                       _this.setState({neighborhood: item.long_name})
+                    if (item.types.includes("sublocality")) {
+                        _this.setState({ neighborhood: item.long_name })
+                        return 0
                     }
                 })
             })
@@ -67,7 +68,7 @@ export default class home extends Component {
     render() {
         return (
             <div>
-                <Navbar color="white"/>
+                <Navbar color="white" />
                 <div className="main">
                     <div className="container home-search">
                         <div className="row">
