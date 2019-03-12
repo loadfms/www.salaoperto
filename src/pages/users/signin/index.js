@@ -36,7 +36,7 @@ export default class signin extends Component {
     render() {
         return (
             <div>
-                <Navbar />
+                <Navbar color="white"/>
                 <div className="main">
                     <div className="container home-search">
                         <div className="row">

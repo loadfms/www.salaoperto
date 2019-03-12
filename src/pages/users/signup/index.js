@@ -4,7 +4,6 @@ import axios from 'axios';
 import * as config from './../../../config'
 import Navbar from './../../../components/navbar/index';
 
-
 export default class signup extends Component {
     constructor(props) {
         super(props)
@@ -26,7 +25,7 @@ export default class signup extends Component {
     handleSubmit(e) {
         e.preventDefault()
 
-        axios.post(config.API_URL + '/users', this.state)
+        axios.post(config.API_URL + 'users', this.state)
             .then(function (response) {
                 console.log(response);
             })
@@ -38,7 +37,7 @@ export default class signup extends Component {
     render() {
         return (
             <div>
-                <Navbar />
+                <Navbar color="white"/>
                 <div className="main">
                     <div className="container home-search">
                         <div className="row">
