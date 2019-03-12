@@ -41,12 +41,9 @@ export default class signup extends Component {
                 <div className="main">
                     <div className="container home-search">
                         <div className="row">
-                            <h1 className="col-xs-12">Cadastre-se e comece a agendar os seus serviços</h1>
-                            <p className="col-xs-12 subtitle">Dezenas de salões perto de você: só falta encaixar o seu horário livre na agenda de um deles</p>
-                        </div>
-                        <div className="row">
                             <div className="col-xs-offset-1 col-xs-10 box ">
-                                <h2>Cadastre-se</h2>
+                            <h1 className="col-xs-12">Cadastre-se e agende.</h1>
+                            <h2 className="col-xs-12 subtitle">Dezenas de salões pertinho de você.</h2>
                                 <div className="row">
                                     <form onSubmit={this.handleSubmit}>
                                         <div className="col-xs-12">

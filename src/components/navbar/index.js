@@ -34,10 +34,10 @@ export default class navbar extends Component {
                 <nav className={this.state.navbarClass}>
                     <div className="container">
                         <div className="row">
-                            <button className="col-sm-12 icon hidden-sm hidden-md hidden-lg" onClick={this.togglemenu}>
+                            <button className="col-xs-3 icon hidden-sm hidden-md hidden-lg" onClick={this.togglemenu}>
                                 <i className="fa fa-bars"></i>
                             </button>
-                            <Link to="/" className="brand col-sm-2 hidden-xs">salaoperto</Link>
+                            <Link to="/" className="brand col-sm-2 col-xs-2">salaoperto</Link>
 
                             <Link to="/faq" className="col-sm-offset-2 col-sm-2 hidden-xs">Como Funciona?</Link>
                             <Link to="/cadastro-salao" className="col-sm-2 hidden-xs">Cadastrar meu salão</Link>

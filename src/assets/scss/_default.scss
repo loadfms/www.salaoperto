@@ -11,6 +11,9 @@ body{
     -webkit-font-smoothing: antialiased;
     -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
     text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    background: -webkit-linear-gradient(left, rgba(254, 156, 143, 0.3) 50%, rgba(255, 255, 255, 0) 50%), -webkit-linear-gradient(left, rgba(254, 178, 168, 0.3) 50%, rgba(255, 255, 255, 0) 50%), -webkit-linear-gradient(left, rgba(254, 200, 193, 0.3) 50%, rgba(255, 255, 255, 0) 50%), -webkit-linear-gradient(left, rgba(250, 217, 193, 0.3) 50%, rgba(255, 255, 255, 0) 50%);
+    background: linear-gradient(90deg, rgba(254, 156, 143, 0.3) 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(90deg, rgba(254, 178, 168, 0.3) 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(90deg, rgba(254, 200, 193, 0.3) 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(90deg, rgba(250, 217, 193, 0.3) 50%, rgba(255, 255, 255, 0) 50%);
+    background-size: 7em 7em, 5em 5em, 3em 3em, 1em 1em;
 }
 
 input, button, submit { border:none; background-color: transparent;} 
@@ -18,7 +21,7 @@ input, button, submit { border:none; background-color: transparent;}
 input{
     width: calc(100% - 50px);
     height: 100%;
-    padding: 14px;
+    padding: 14px 14px 14px 0px;
     border: 1px solid rgba(0,0,0,.1);
     border-left: 0;
     color: rgba(0,0,0,.66);
@@ -60,7 +63,6 @@ label{
     background-color: #ef3a5d;
     border-color: #ef3a5d;
     width: 100%;
-    margin-bottom: 16px;
 }
 
 .box{
@@ -68,9 +70,26 @@ label{
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
-    margin-top:24px;
-    padding-top: 16px;
+    padding: 72px;
     box-shadow: 0 2px 7px rgba(0,0,0,.18);
+
+    h1, h2{
+        color:$black;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 28.8px;
+        margin: 0 0 8px 0;
+        padding: 0;
+    }
+    h2{
+        margin-bottom: 30px;
+    }
+}
+
+.main{
+    width: 100%;
+    position: relative;
+    padding-top: calc(10vh);
 }
 
 .left{
@@ -83,4 +102,25 @@ label{
 
 .center{
     text-align: center
+}
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+    .box{
+        padding: 24px;
+
+        h1, h2{
+            color:$black;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: initial;
+            margin: 0 0 4px 0;
+            padding: 0;
+        }
+        h2{
+            margin-bottom: 15px;
+        }
+    }
 }

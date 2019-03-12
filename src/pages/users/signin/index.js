@@ -40,12 +40,9 @@ export default class signin extends Component {
                 <div className="main">
                     <div className="container home-search">
                         <div className="row">
-                            <h1 className="col-xs-12">Faça o login e acesso seu conteúdo privado</h1>
-                            <p className="col-xs-12 subtitle">Agende, consulte, confime e entre em contato com mais de 1000 salões perto de você</p>
-                        </div>
-                        <div className="row">
                             <div className="col-xs-offset-1 col-xs-10 box ">
-                                <h2>Cadastre-se</h2>
+                            <h1 className="col-xs-12">Faça o login e acesso seu conteúdo privado.</h1>
+                            <h2 className="col-xs-12 subtitle">Agende, consulte, cancele e confime.</h2>
                                 <div className="row">
                                     <form onSubmit={this.handleSubmit}>
                                         <div className="col-xs-12">
@@ -58,7 +55,7 @@ export default class signin extends Component {
                                             <SelectorInput isrequired={true} type="password" icon="lock" id="password" value={this.state.password} handleChange={this.handleInputChange} />
                                         </div>
 
-                                        <div className="col-xs-12">
+                                        <div className="col-xs-12 col-md-3">
                                             <input type="submit" className="btn" value="Login" />
                                         </div>
                                     </form>

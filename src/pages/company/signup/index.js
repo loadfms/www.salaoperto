@@ -20,18 +20,16 @@ export default class signup extends Component {
             <div>
                 <Navbar color="white" />
                 <div className="main">
-                    <div className="container home-search">
+                    <div className="container company-signup">
                         <div className="row">
-                            <h1 className="col-xs-12">Cadastre-se seu salão</h1>
-                            <p className="col-xs-12 subtitle">Lote sua agenda tornando seu salão disponível para milhares de pessoas pertinho de você!</p>
+
                         </div>
                         <div className="row">
                             <div className="col-xs-offset-1 col-xs-10 box ">
-                                <h2>Cadastre-se</h2>
+                                <h1 className="col-xs-12">Inclua sua empresa.</h1>
+                                <h2 className="col-xs-12">Seu salão visível para milhares de pessoas.</h2>
                                 <div className="row">
                                     <form onSubmit={this.handleSubmit}>
-                                        <h3>Dados de acesso</h3>
-
                                         <div className="col-xs-12">
                                             <label>Email</label>
                                             <SelectorInput isrequired={true} type="email" icon="user" id="email" value={this.state.email} handleChange={this.handleInputChange} />
@@ -46,7 +44,6 @@ export default class signup extends Component {
                                             <label>Senha</label>
                                             <SelectorInput isrequired={true} type="password" icon="lock" id="password" value={this.state.password} handleChange={this.handleInputChange} />
                                         </div>
-                                        <h3>Informações do salão</h3>
 
                                         <div className="col-xs-12">
                                             <label>Nome do salão</label>
