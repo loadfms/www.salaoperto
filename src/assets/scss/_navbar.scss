@@ -1,10 +1,10 @@
 .top-nav {
-    background-color: transparent;
+    background-color: $black;
     position: relative;
     z-index: 1022;
     width: 100%;
     a{
-        color: $black;
+        color: $white;
         text-decoration: none;
         font-size: 14px;
         line-height: 20px;
@@ -19,7 +19,7 @@
             background-image: url('./../images/logo.png');
             background-size: auto;
             background-repeat: no-repeat;
-            background-size: 18%;
+            background-size: 15%;
             text-indent: 50px;
             background-position-y: 10px;
             padding: 0;
@@ -30,12 +30,6 @@
     .icon{
         font-size: 33px;
         color:$black;
-    }
-
-    &.white{
-        a{
-            color: $white;
-        }
     }
 }
 
@@ -84,6 +78,6 @@ and (max-device-width : 414px) {
         background-image: url('./../images/logo-black.png');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 10%;
+        background-size: 7%;
     }
 }

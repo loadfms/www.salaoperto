@@ -23,7 +23,6 @@ input{
     border-left: 0;
     color: rgba(0,0,0,.66);
     box-shadow: none;
-    border-radius: 4px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     flex: 1 1 0;
@@ -55,7 +54,6 @@ label{
     padding: 14px;
     font-size: 16px;
     line-height: 1.25;
-    border-radius: 4px;
     transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     cursor: pointer;
     color: #fff;
@@ -67,23 +65,12 @@ label{
 
 .box{
     background-color: $white;
-    border-radius: 10px;
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
     margin-top:24px;
     padding-top: 16px;
-    h2{
-        color:$light-black;
-        font-size: 16px;
-        margin-top: 0;
-    }
-    h3{
-        color:$light-black;
-        font-size: 14px;
-        margin-top: 0;
-        padding-left: 15px;
-    }
+    box-shadow: 0 2px 7px rgba(0,0,0,.18);
 }
 
 .left{
