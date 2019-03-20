@@ -4,6 +4,10 @@
 
     &__navbar{
         background-color: $salmon;
+        position: fixed; /* Set the navbar to fixed position */
+        top: 0; /* Position the navbar at the top of the page */
+        width: 100%; /* Full width */
+
         span{
             color: $white;
             font-size:18px;
@@ -21,14 +25,34 @@
 
     &__content{
         &-card{
-            background-color: black;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 25px;
+            height: 225px;
+            margin-bottom: 25px;
+
+            &:first-child{
+                margin-top: 50px;
+            }
 
             button{
-                padding: 5px 20px;
-                border: 1px solid $salmon;
+                padding: 3px 25px;
+                border: 2px solid $salmon;
                 border-radius: 20px;
-                font-size: 14px;
+                font-size: 11px;
                 color: $salmon;
+                margin-bottom: 70px;
+            }
+
+            span{
+                
+                color:$white;
+                font-size: 10px;
+            }
+
+            h2, h3{
+                color: $white;
+                margin: 0;
             }
         }
     }

@@ -93,25 +93,15 @@ export default class searchresult extends Component {
                     <div className="container">
                         <div className="row">
                             <span className="col-xs-1 center"><i class="icofont-search"></i></span>
-                            <h1 className="col-xs-11 center">Perto de você</h1>
+                            <h1 className="col-xs-10 center">Perto de você</h1>
                         </div>
                     </div>
                 </div>
                 <div className="result-page__content">
-                    <div className="result-page__content-card">
-                        <div className="container">
-                            <div className="row">
-                                <button>Agendar</button>
-                            </div>
-                            <div className="row">
-                                <span>Cabelo</span>
-                            </div>
-                            <div className="row">
-                                <h2>Romeu Salão e Barbearia</h2>
-                                <h3>Serviços de salão de beleza</h3>
-                            </div>
-                        </div>
-                    </div>
+                    <Card image="saloon_1.png" service="Cabelo" name="Romeu Salão e Barbearia" subtitle="Serviços de salão de beleza" />
+                    <Card image="saloon_2.png" service="Cabelo" name="Romeu Salão e Barbearia" subtitle="Serviços de salão de beleza" />
+                    <Card image="saloon_1.png" service="Cabelo" name="Romeu Salão e Barbearia" subtitle="Serviços de salão de beleza" />
+                    <Card image="saloon_2.png" service="Cabelo" name="Romeu Salão e Barbearia" subtitle="Serviços de salão de beleza" />
                 </div>
             </div>
         )
