@@ -17,70 +17,70 @@ export default class searchresult extends Component {
             neighborhood: localStorage.getItem('neighborhood')
         };
 
-        this.tooglefilter = this.tooglefilter.bind(this)
-        this.handleInputChange = this.handleInputChange.bind(this)
-        this.getData = this.getData.bind(this)
+        // this.tooglefilter = this.tooglefilter.bind(this)
+        // this.handleInputChange = this.handleInputChange.bind(this)
+        // // this.getData = this.getData.bind(this)
     }
 
-    registerLayzyLoad() {
-        window.onscroll = () => {
-            if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
-                this.setState({ page: this.state.page + 1 }, () => {
-                    this.getData(false)
-                })
-            }
-        };
-    }
+    // registerLayzyLoad() {
+    //     window.onscroll = () => {
+    //         if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+    //             this.setState({ page: this.state.page + 1 }, () => {
+    //                 this.getData(false)
+    //             })
+    //         }
+    //     };
+    // }
 
     componentDidMount() {
-        this.registerLayzyLoad()
+        // this.registerLayzyLoad()
 
-        this.getData(false)
-        this.setState({ service: localStorage.getItem('service') })
+        // this.getData(false)
+        // this.setState({ service: localStorage.getItem('service') })
     }
 
-    getData(clear) {
-        let latitude = localStorage.getItem('latitude');
-        let longitude = localStorage.getItem('longitude');
-        let _this = this;
+    // getData(clear) {
+    //     let latitude = localStorage.getItem('latitude');
+    //     let longitude = localStorage.getItem('longitude');
+    //     let _this = this;
 
-        axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=' + this.state.service + '&page=' + this.state.page)
-            .then(function (response) {
+    //     axios.get(config.API_URL + 'companies?latitude=' + latitude + '&longitude=' + longitude + '&nome_servico=' + this.state.service + '&page=' + this.state.page)
+    //         .then(function (response) {
 
 
-                let currentCompanies = _this.state.payload.data.companies
-                let newCompanies = response.data.companies
-                let result = []
+    //             let currentCompanies = _this.state.payload.data.companies
+    //             let newCompanies = response.data.companies
+    //             let result = []
 
-                if (!clear) {
-                    result = currentCompanies.concat(newCompanies);
-                } else {
-                    result = newCompanies
-                }
+    //             if (!clear) {
+    //                 result = currentCompanies.concat(newCompanies);
+    //             } else {
+    //                 result = newCompanies
+    //             }
 
-                response.data.companies = result
+    //             response.data.companies = result
 
-                _this.setState({ payload: response })
+    //             _this.setState({ payload: response })
 
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
 
-    tooglefilter() {
-        if (this.state.isOpen === 'row filter-content') {
-            this.setState({
-                isOpen: 'row filter-content is-open',
-                faIcon: 'fa fa-minus-square collapse-filter'
-            })
-        } else {
-            this.setState({
-                isOpen: 'row filter-content',
-                faIcon: 'fa fa-plus-square collapse-filter'
-            })
-        }
-    }
+    // tooglefilter() {
+    //     if (this.state.isOpen === 'row filter-content') {
+    //         this.setState({
+    //             isOpen: 'row filter-content is-open',
+    //             faIcon: 'fa fa-minus-square collapse-filter'
+    //         })
+    //     } else {
+    //         this.setState({
+    //             isOpen: 'row filter-content',
+    //             faIcon: 'fa fa-plus-square collapse-filter'
+    //         })
+    //     }
+    // }
 
     handleInputChange(key, value) {
         this.setState({ [key]: value })
@@ -88,8 +88,31 @@ export default class searchresult extends Component {
 
     render() {
         return (
-            <div>
-               
+            <div className="result-page">
+                <div className="result-page__navbar">
+                    <div className="container">
+                        <div className="row">
+                            <span className="col-xs-1 center"><i class="icofont-search"></i></span>
+                            <h1 className="col-xs-11 center">Perto de você</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="result-page__content">
+                    <div className="result-page__content-card">
+                        <div className="container">
+                            <div className="row">
+                                <button>Agendar</button>
+                            </div>
+                            <div className="row">
+                                <span>Cabelo</span>
+                            </div>
+                            <div className="row">
+                                <h2>Romeu Salão e Barbearia</h2>
+                                <h3>Serviços de salão de beleza</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
