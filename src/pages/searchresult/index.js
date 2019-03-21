@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import Card from './../../components/card/index'
-import axios from 'axios'
-import * as config from './../../config'
-
 
 export default class searchresult extends Component {
     constructor(props) {
