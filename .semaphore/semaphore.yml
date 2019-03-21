@@ -10,6 +10,7 @@ blocks:
     task:
       secrets:
         - name: awssecrets
+        - name: googlesecrets
       env_vars:
         - name: APP_ENV
           value: prod
@@ -21,6 +22,8 @@ blocks:
           - ls -1
           - echo "$AWS_ACCESS_KEY_ID"
           - echo "$AWS_SECRET_ACCESS_KEY"
+          - echo "$GOOGLE_ID"
+          - sed 's/$GOOGLEID/'"$GOOGLEID"'/' config_prd.js > config.js
           - npm i -g npm
           - node -v
           - npm -v
