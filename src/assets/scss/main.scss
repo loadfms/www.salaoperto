@@ -1,10 +1,9 @@
 @import './../css/bootstrap.min.css';
+@import './../css/icofont.min.css';
 @import './variables';
 @import './default';
 
 @import './home';
-@import './result';
-
-@import './navbar';
-@import './selectorinput';
-@import './resultcard';
+@import './signin';
+@import './signup';
+@import './searchresult';

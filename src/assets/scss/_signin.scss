@@ -1,0 +1,27 @@
+.signin-page{
+    background-image: url(../images/login-bg.png);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-size: cover;
+
+    &__title{
+        margin-top: 80px;
+        h1{
+            color: $white;
+            font-size: 32px;
+            font-weight: 400;
+        }
+    }
+
+    &__form{
+        margin-top: 110px;
+    }
+
+    &__footer{
+        margin-top: 100px;
+        button{
+            color:$white;
+            font-size: 12px;
+        }
+    }
+}

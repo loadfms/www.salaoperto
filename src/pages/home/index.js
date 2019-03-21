@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import SelectorInput from './../../components/selectorinput/index'
-import Navbar from './../../components/navbar/index';
 import axios from 'axios'
 import * as config from './../../config'
 
@@ -17,6 +15,9 @@ export default class home extends Component {
         }
 
         this.search = this.search.bind(this)
+        this.signin = this.signin.bind(this)
+        this.signup = this.signup.bind(this)
+
         this.handleInputChange = this.handleInputChange.bind(this)
 
     }
@@ -60,37 +61,42 @@ export default class home extends Component {
         this.props.history.push('/resultado')
     }
 
+    signin(){
+        this.props.history.push('/login')
+    }
+
+    signup(){
+        this.props.history.push('/cadastro')
+    }
+
     handleInputChange(key, value) {
         this.setState({ [key]: value })
     }
 
     render() {
         return (
-            <div>
-                <Navbar color="white" />
-                <div className="main">
-                    <div className="container home-search">
-                        <div className="col-xs-offset-1 col-xs-10 box">
-                            <h1 className="col-xs-12">Encontre o serviço que você procura.</h1>
-                            <h2 className="col-xs-12">Na hora que você precisa.</h2>
-
-                            <div className="row">
-                                <div className="col-xs-12 col-md-10">
-                                    <label>Serviço</label>
-                                    <SelectorInput placeholder="ex. Corte feminino" type="text" icon="cut" id="service" value={this.state.service} handleChange={this.handleInputChange} autocomplete={true} autocompleteroute="services?nome=" />
-                                </div>
-
-                                <div className="col-xs-12 col-md-10">
-                                    <label><i className="fas fa-map-marker-alt"></i>  {this.state.neighborhood}</label>
-                                </div>
-
-                                <div className="col-xs-12 col-md-3">
-                                    <button className="btn" onClick={this.search}> Encontrar </button>
-                                </div>
-                            </div>
-                        </div>
+            <div className="home-page container">
+                <div className="home-page__logo">
+                    <div className="row">
+                        <h1 className="col-xs-12 center">Salão Perto</h1>
                     </div>
-                </div >
+                </div>
+                <div className="home-page__buttons">
+                    <div className="row">
+                        <input type="submit" className="button col-xs-offset-1 col-xs-10" value="Entrar" onClick={this.signin} />
+                    </div>
+                    <div className="row">
+                        <input type="submit" className="button col-xs-offset-1 col-xs-10" value="Cadastrar" onClick={this.signup}/>
+                    </div>
+                </div>
+                <div className="home-page__footer">
+                    <div className="row">
+                        <button className="col-xs-12">Como funciona?</button>
+                    </div>
+                    <div className="row">
+                        <button className="col-xs-12">Cadastre seu salão.</button>
+                    </div>
+                </div>
             </div>
         )
     }
