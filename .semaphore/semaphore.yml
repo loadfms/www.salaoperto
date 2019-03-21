@@ -23,7 +23,7 @@ blocks:
           - echo "$AWS_ACCESS_KEY_ID"
           - echo "$AWS_SECRET_ACCESS_KEY"
           - echo "$GOOGLE_ID"
-          - sed 's/$GOOGLEID/'"$GOOGLEID"'/' config_prd.js > config.js
+          - sed 's/$GOOGLEID/'"$GOOGLEID"'/' src/config_prd.js > src/config.js
           - npm i -g npm
           - node -v
           - npm -v
