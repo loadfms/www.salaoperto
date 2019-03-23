@@ -63,6 +63,19 @@ label{
     margin-bottom: 25px;
     border: 0;
     border-radius: $border-radius;
+    @media (min-width: 992px) {
+        border-radius: $border-radius-bigger;
+        box-shadow:  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    &.gray{
+        background-color: $light-gray;
+        color: $dark-gray;
+        height: 48px;
+        i{
+            font-size: 18px;
+        }
+    }
 }
 
 input[type='text'], input[type='password']{
@@ -88,3 +101,4 @@ input[type='text'], input[type='password']{
 .center{
     text-align: center
 }
+
