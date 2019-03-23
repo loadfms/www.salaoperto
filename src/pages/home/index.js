@@ -110,8 +110,8 @@ export default class home extends Component {
                         </div>
                         <div className="home-page-desktop__content__buttons">
                             <div className="row">
-                                <input type="submit" className="button col-md-offset-1 col-md-6" value="Entrar" onClick={this.signin} />
-                                <button type="submit" className="button gray col-md-offset-1 col-md-1" onClick={this.signup}><i class="icofont-search"></i></button>
+                                <input type="submit" className="button col-md-offset-1 col-md-6" value="Cadastre-se" onClick={this.signup} />
+                                <button type="submit" className="button gray col-md-offset-1 col-md-1" onClick={this.search}><i class="icofont-search"></i></button>
                             </div>
                         </div>
                         <div className="home-page-desktop__content__footer">
